@@ -5,8 +5,19 @@
 }
 
 #root {
-  background: darkgray;
+  background: #000;
   min-height: 100vh;
+}
+
+/* heather */
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header > * {
+  margin: 0 30px;
 }
 
 .container {
@@ -16,7 +27,7 @@
 }
 
 .title {
-  color: #fff;
+  color: #f00;
   text-align: center;
   padding-top: 20px;
   font-size: 50px;
@@ -28,7 +39,7 @@ body {
 
 .flip-card {
   background-color: transparent;
-  width: 300px;
+  width: 318px;
   height: 450px;
   perspective: 1000px;
   margin: 20px;

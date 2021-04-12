@@ -10,19 +10,24 @@
 </head>
 <body>
   <div id="root">
-
-    <input v-model="movieSearch" placeholder="Cerca un film">
-    <!-- <button @click="searchMovie">Search</button> -->
-
+    <!-- header -->
+    <header>
+      <h1 class="title">Boolflix</h1>
+      <!-- movie-research -->
+      <div class="container-search">
+        <input v-model="movieSearch" placeholder="Cerca un film">
+        <button @click="searchMovie">Search</button>
+      </div>
+    </header>
+    <!-- movies -->
     <div class="container">
       <div class="flip-card"
-        v-if="movie.title.toLowerCase().includes(movieSearch.toLowerCase())"
         v-for="movie in movies">
         <div class="flip-card-inner">
-          <!-- <div
+          <div
            class="flip-card-front"
-           :style="`background-image: url('${movie.poster_path}')`">
-          </div> -->
+           :style="`background-image: url('https://image.tmdb.org/t/p/w500/${movie.poster_path}')`">
+          </div>
           <div class="flip-card-back">
             <h2>{{ movie.title }}</h2>
             <p>{{ movie.original_title }}</p>
