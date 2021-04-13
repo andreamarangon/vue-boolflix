@@ -29,10 +29,12 @@
            :style="`background-image: url('https://image.tmdb.org/t/p/w500/${movie.poster_path}')`">
           </div>
           <div class="flip-card-back">
-            <h2>{{ movie.title }}</h2>
-            <p>{{ movie.original_title }}</p>
-            <p>{{ movie.original_language }}</p>
-            <p>{{ movie.vote_average }}</p>
+            <h2>Titolo:{{ getTitle(movie) }}</h2>
+            <p>Titolo originale: {{ getOriginalTitle(movie) }}</p>
+            <p>Lingua originale: {{ movie.original_language }}
+              <img class="flag" :src="`https://www.unknown.nu/flags/images/${movie.original_language}-100`">
+            </p>
+            <p>Voto: {{ movie.vote_average }}</p>
           </div>
         </div>
       </div>

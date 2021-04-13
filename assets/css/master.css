@@ -19,11 +19,15 @@ header {
 header > * {
   margin: 0 30px;
 }
-
+/* movie-cards */
 .container {
   display: flex;
   flex-wrap: wrap;
   padding: 0 40px;
+}
+
+img.flag {
+  width: 25px;
 }
 
 .title {
@@ -39,7 +43,7 @@ body {
 
 .flip-card {
   background-color: transparent;
-  width: 318px;
+  width: 300px;
   height: 450px;
   perspective: 1000px;
   margin: 20px;

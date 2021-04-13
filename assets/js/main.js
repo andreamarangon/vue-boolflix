@@ -5,23 +5,31 @@ var app = new Vue({
     movies: [],
     movieSearch: '',
   },
-  // mounted(){
-  //   axios.get('https://api.themoviedb.org/3/search/movie?api_key=12d57af005908ff69d6d243e223e1493&query=ritorno al futuro&language=it')
-  //    .then((result) => {
-  //      this.movies = result.data.results;
-  //      console.log(this.movies);
-  //
-  //     });
-  //
-  // },
   methods:{
     searchMovie: function () {
+      this.movies = [];
       axios.get('https://api.themoviedb.org/3/search/movie?api_key=12d57af005908ff69d6d243e223e1493&query='+ this.movieSearch +'&language=it-IT')
        .then((result) => {
-         this.movies = result.data.results;
-         console.log(this.movies);
-
+         this.movies = [...this.movies,...result.data.results];
         });
+      axios.get('https://api.themoviedb.org/3/search/tv?api_key=12d57af005908ff69d6d243e223e1493&query='+ this.movieSearch +'&language=it-IT')
+       .then((result) => {
+         this.movies = [...this.movies,...result.data.results];
+        });
+    },
+    getTitle: function (obj) {
+      if (obj.title) {
+        return obj.title
+      } else {
+        return obj.name
+      }
+    },
+    getOriginalTitle: function (obj) {
+      if (obj.original_title) {
+        return obj.original_title;
+      } else {
+        return obj.original_name;
+      }
 
     }
   }
