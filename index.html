@@ -17,8 +17,8 @@
       <h1 class="title">Boolflix</h1>
       <!-- movie-research -->
       <div class="container-search">
-        <input v-model="movieSearch" placeholder="Cerca un film" @keyup.enter="searchMovie">
-        <button @click="searchMovie">Search</button>
+        <input type="text" v-model="movieSearch" placeholder="Cerca un film o una serie tv" @keyup.enter="searchMovie">
+        <div class="btn" @click="searchMovie">Search</div>
       </div>
     </header>
     <!-- movies -->
@@ -32,7 +32,7 @@
           </div>
           <div class="flip-card-back">
             <h2>{{ getTitle(movie) }}</h2>
-            <p>Titolo originale: {{ getOriginalTitle(movie) }}</p>
+            <h3>Titolo originale: {{ getOriginalTitle(movie) }}</h3>
             <p>Lingua originale: {{ movie.original_language }}
               <img class="flag" :src="`https://www.unknown.nu/flags/images/${movie.original_language}-100`">
             </p>
