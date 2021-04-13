@@ -7,7 +7,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" />
   <link rel="stylesheet" href="./assets/css/master.css">
   <!-- jquery -->
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
   <title>Vue Boolflix</title>
 </head>
 <body>
@@ -17,7 +17,7 @@
       <h1 class="title">Boolflix</h1>
       <!-- movie-research -->
       <div class="container-search">
-        <input v-model="movieSearch" placeholder="Cerca un film">
+        <input v-model="movieSearch" placeholder="Cerca un film" @keyup.enter="searchMovie">
         <button @click="searchMovie">Search</button>
       </div>
     </header>
@@ -31,16 +31,23 @@
            :style="`background-image: url('https://image.tmdb.org/t/p/w500/${movie.poster_path}')`">
           </div>
           <div class="flip-card-back">
-            <h2>Titolo:{{ getTitle(movie) }}</h2>
+            <h2>{{ getTitle(movie) }}</h2>
             <p>Titolo originale: {{ getOriginalTitle(movie) }}</p>
             <p>Lingua originale: {{ movie.original_language }}
               <img class="flag" :src="`https://www.unknown.nu/flags/images/${movie.original_language}-100`">
             </p>
-            <p>Voto: {{ movie.vote_average }}</p>
-            <p >Voto: {{ getStar(movie) }}</p>
-            <ul class="star">
-
-            </ul>
+            <!-- <p>Voto: {{ movie.vote_average }}</p>
+            <p class="star">Voto: {{ getStar(movie.vote_average) }}</p> -->
+            <div class="container-vote">
+              <i
+                class="fas fa-star"
+                v-for="star in getStar(movie.vote_average)">
+              </i>
+              <i
+                class="far fa-star"
+                v-for="star in (5 - getStar(movie.vote_average))">
+              </i>
+            </div>
           </div>
         </div>
       </div>

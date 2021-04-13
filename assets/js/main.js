@@ -34,12 +34,12 @@ var app = new Vue({
         return obj.original_name;
       }
     },
-    getStar: function (obj) {
-      let vote = parseInt(obj.vote_average / 2 + 1);
-      // return vote;
-      for (var i = 0; i < vote; i++) {
-        $('.star').append(`<i class="fas fa-star"></i>`)
-      }
+    getStar: function (item) {
+      let vote = Math.ceil(item / 2);
+      return vote;
+      // for (var i = 0; i < vote; i++) {
+      //   $('.star').append(`<i class="fas fa-star"></i>`)
+      // }
     }
   }
 
