@@ -6,11 +6,15 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  background: #000;
+
 }
 
 #root {
   background: #000;
   min-height: 100vh;
+  width: 90%;
+  margin: 0 auto;
 }
 
 /* heather */
@@ -20,15 +24,39 @@ header {
   justify-content: space-between;
 }
 
-header > * {
-  margin: 0 30px;
+.left-header {
+  display: flex;
+  align-items: center;
 }
 
-input {
+.logo-netflix img{
+  width: 200px;
+}
+
+.nav-menu {
+  color: #fff;
+  list-style: none;
+  margin-left: 40px;
+}
+
+.nav-menu li {
+  display: inline-block;
+  padding-left: 10px;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.nav-menu li a:hover {
+  color: lightgray;
+}
+
+.right-header input {
   background-color: #000;
   color: #9AA0A6;
   height: 40px;
-  /* width: 95%; */
   font-size: 18px;
   outline: none;
   border: 1px solid gray;
@@ -36,53 +64,41 @@ input {
   padding: 10px;
 }
 
-/* button {
-  appearance:none;
-  -webkit-appearance:none;
-  padding:10px;
-  border:none;
-  background-color:#f00;
-  color:#fff;
-  font-weight:600;
-  border-radius:5px;
-  width: 100px;
-  cursor: pointer;
-} */
-
-.container-search .btn {
-  width: 100px;
-  height: 40px;
-  border-radius: 10px;
-  font-weight: bold;
-  background-color: #f00;
-  padding: 10px;
+.right-header #icon-search img {
   cursor: pointer;
   color: #fff;
-  text-align: center;
+  font-size: 25px;
+  width: 25px;
 }
 
-.container-search {
+#input-container {
+  display: none;
+}
+
+#input-container img {
+  width: 25px;
+  cursor: pointer;
+  padding-top: 6px;
+  margin-left: 10px;
+}
+
+
+.right-header {
   display: flex;
-  width: 350px;
-  justify-content: space-between;
+  width: 500px;
+  justify-content: flex-end;
 }
 
 /* movie-cards */
 .container {
   display: flex;
   flex-wrap: wrap;
-  padding: 40px 40px 0;
+  justify-content: space-between;
+  padding: 40px 0;
 }
 
 img.flag {
   width: 25px;
-}
-
-.title {
-  color: #f00;
-  text-align: center;
-  padding-top: 20px;
-  font-size: 50px;
 }
 
 .flip-card {
@@ -90,7 +106,7 @@ img.flag {
   width: 250px;
   height: 375px;
   perspective: 1000px;
-  margin: 20px 10px;
+  margin: 20px 5px;
 }
 
 .flip-card-inner {
@@ -113,6 +129,8 @@ img.flag {
   height: 100%;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  border-radius: 8px;
+
 }
 
 .flip-card-front {
@@ -126,4 +144,10 @@ img.flag {
   display: flex;
   flex-direction: column;
   justify-content: center;
+}
+
+
+
+@media screen and (min-width: 885px) {
+
 }

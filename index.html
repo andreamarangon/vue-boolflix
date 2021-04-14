@@ -14,11 +14,29 @@
   <div id="root">
     <!-- header -->
     <header>
-      <h1 class="title">Boolflix</h1>
+      <div class="left-header">
+        <div class="logo-netflix">
+          <img src="./assets/img/netflix-logo.png" alt="">
+        </div>
+        <ul class="nav-menu">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Serie TV</a></li>
+          <li><a href="#">Film</a></li>
+          <li><a href="#">Nuovi e popolari</a></li>
+          <li><a href="#">La mia lista</a></li>
+        </ul>
+      </div>
       <!-- movie-research -->
-      <div class="container-search">
-        <input type="text" v-model="movieSearch" placeholder="Cerca un film o una serie tv" @keyup.enter="searchMovie">
-        <div class="btn" @click="searchMovie">Search</div>
+      <div class="right-header">
+        <div id="input-container">
+          <input id="search-input" type="text" v-model="movieSearch" placeholder="Cerca un film o una serie tv" @keyup.enter="searchMovie">
+          <div @click="searchMovie">
+            <img  src="./assets/img/search-icon.jpg" alt="search">
+          </div>
+        </div>
+        <div id="icon-search" @click="getSearch" >
+          <img src="./assets/img/search-icon.jpg" alt="search">
+        </div>
       </div>
     </header>
     <!-- movies -->
@@ -32,7 +50,7 @@
           </div>
           <div class="flip-card-back">
             <h2>{{ getTitle(movie) }}</h2>
-            <h3>Titolo originale: {{ getOriginalTitle(movie) }}</h3>
+            <p>Titolo originale: {{ getOriginalTitle(movie) }}</p>
             <p>Lingua originale: {{ movie.original_language }}
               <img class="flag" :src="`https://www.unknown.nu/flags/images/${movie.original_language}-100`">
             </p>

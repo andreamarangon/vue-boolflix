@@ -37,9 +37,10 @@ var app = new Vue({
     getStar: function (item) {
       let vote = Math.ceil(item / 2);
       return vote;
-      // for (var i = 0; i < vote; i++) {
-      //   $('.star').append(`<i class="fas fa-star"></i>`)
-      // }
+    },
+    getSearch: function () {
+      document.getElementById("input-container").style.display = "flex";
+      document.getElementById("icon-search").style.display = "none";
     }
   }
 
