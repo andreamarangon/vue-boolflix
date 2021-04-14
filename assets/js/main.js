@@ -41,6 +41,20 @@ var app = new Vue({
     getSearch: function () {
       document.getElementById("input-container").style.display = "flex";
       document.getElementById("icon-search").style.display = "none";
+    },
+    getBg: function (item) {
+      if (item.poster_path) {
+        return `https://image.tmdb.org/t/p/w500/${item.poster_path}`
+      } else {
+        return `./assets/img/logo-netflix-transparent.png`
+      }
+    },
+    getFlag: function (item) {
+      if (item.original_language == 'en') {
+        return `./assets/img/flag-en.webp`
+      } else {
+        return `https://www.unknown.nu/flags/images/${item.original_language}-100`
+      }
     }
   }
 
