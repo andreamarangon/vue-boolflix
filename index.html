@@ -49,13 +49,15 @@
            :style="`background-image: url('https://image.tmdb.org/t/p/w500/${movie.poster_path}')`">
           </div>
           <div class="flip-card-back">
+            <div
+              class="back-image"
+              :style="`background-image: url('https://image.tmdb.org/t/p/w500/${movie.poster_path}')`">
+            </div>
             <h2>{{ getTitle(movie) }}</h2>
-            <p>Titolo originale: {{ getOriginalTitle(movie) }}</p>
-            <p>Lingua originale: {{ movie.original_language }}
+            <div class="original-language-info">
+              <span>Titolo originale: {{ getOriginalTitle(movie) }}</span>
               <img class="flag" :src="`https://www.unknown.nu/flags/images/${movie.original_language}-100`">
-            </p>
-            <!-- <p>Voto: {{ movie.vote_average }}</p>
-            <p class="star">Voto: {{ getStar(movie.vote_average) }}</p> -->
+            </div>
             <div class="container-vote">
               <i
                 class="fas fa-star"
